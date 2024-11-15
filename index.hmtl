@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAIDYCHKA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-y: auto;
+      background-color: #000; /* Черный фон страницы */
+      font-family: Arial, sans-serif;
+      color: #FFFFFF;
+      scroll-behavior: smooth;
+    }
+
+    .centered-text {
+      font-size: 5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20vh;
+      z-index: 1;
+      position: relative;
+      Text-shadow: 0 0 20px rgb(121, 186, 255);
+    }
+
+    .background-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(3, 15, 47, 0.3), transparent 70%);
+      filter: blur(100px);
+      animation: moveBackground 50s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes moveBackground {
+      0% { transform: translate(-50%, -50%); }
+      50% { transform: translate(50%, 50%); }
+      100% { transform: translate(-50%, -50%); }
+    }
+
+    .about-section {
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      padding: 20px;
+      opacity: 0.7;
+      transform: translateY(20px);
+      transition: opacity 1s, transform 1s;
+    }
+
+    .about-section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .info-section {
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 20px;
+      color: rgba(255, 255, 255, 0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      background-color: #0088cc;
+      color: #FFFFFF;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+    }
+
+    .button:hover {
+      background-color: #006699;
+    }
+
+    .button i {
+      margin-right: 8px;
+    }
+
+    /* Стили для секции карточек товаров */
+    .products-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px 0;
+      width: 100%;
+    }
+
+    .product-card {
+      width: 250px;
+      height: 350px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px); /* Эффект блюра */
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s;
+      cursor: pointer; /* Указатель при наведении */
+      Text-shadow: 0 0 10px white;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 60%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .product-info {
+      padding: 15px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .product-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .product-price {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #ff6f61;
+    }
+
+    /* Ссылка на карточке товара */
+    .product-card a {
+      text-decoration: none;
+      color: inherit;
+      Text-shadow: 0 0 10px white;
+    }
+  </style>
+</head>
+<body>
+  <div class="background-animation"></div>
+  <div>
+    <a href="https://t.me/yourusername" target="_blank" class="button">
+        <i class="fab fa-telegram-plane"></i> Telegram
+      </a>
+  </div>
+  <div class="centered-text">FAIDYCHKA</div>
+
+  <!-- Секция "О себе" -->
+  <div class="about-section"></div>
+
+  <!-- Секция с информацией -->
+  <div class="info-section">
+    <p>Здесь можно добавить информацию о себе, например, интересы, достижения или любую другую информацию.</p>
+  </div>
+
+  <!-- Секция товаров -->
+  <div class="products-section">
+    <div class="product-card">
+      <a href="https://example.com/product1" target="_blank">
+        <div class="product-image" style="background-image: url('https://via.placeholder.com/250x200');"></div>
+        <div class="product-info">
+          <div class="product-name">Товар 1</div>
+          <div class="product-price">1000 ₽</div>
+        </div>
+      </a>
+    </div>
+    <div class="product-card">
+      <a href="https://example.com/product2" target="_blank">
+        <div class="product-image" style="background-image: url('https://telegraphoto.site/images/8qj64dq4ib0ioe24ypcvl13oj.jpg');"></div>
+        <div class="product-info">
+          <div class="product-name">LEG1T PROJECT</div>
+          <div class="product-price">1500 ₽</div>
+        </div>
+      </a>
+    </div>
+    <div class="product-card">
+      <a href="https://example.com/product3" target="_blank">
+        <div class="product-image" style="background-image: url('https://via.placeholder.com/250x200');"></div>
+        <div class="product-info">
+          <div class="product-name">Товар 3</div>
+          <div class="product-price">2000 ₽</div>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener("scroll", function() {
+      const aboutSection = document.querySelector(".about-section");
+      const infoSection = document.querySelector(".info-section");
+      const scrollPosition = window.scrollY + window.innerHeight;
+
+      if (scrollPosition > aboutSection.offsetTop) {
+        aboutSection.classList.add("show");
+      }
+      
+      if (scrollPosition > infoSection.offsetTop) {
+        infoSection.classList.add("show");
+      }
+    });
+  </script>
+</body>
+</html>
